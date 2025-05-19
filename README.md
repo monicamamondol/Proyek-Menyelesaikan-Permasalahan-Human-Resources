@@ -33,15 +33,36 @@ Proyek ini mencakup:
 5. **Kesimpulan dan Rekomendasi**: Menarik kesimpulan dari hasil analisis dan memberikan rekomendasi praktis untuk mengurangi attrition.
 
 6. ### Persiapan
-**Sumber data**: Dataset yang digunakan dalam proyek ini adalah Dataset Karyawan Jaya Jaya Maju ([https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee]) sesuai dengan instruksi dari submission proyek ini.
+**Sumber data**: 
+Jaya Jaya Maju merupakan salah satu perusahaan multinasional yang telah berdiri sejak tahun 2000. Ia memiliki lebih dari 1000 karyawan yang tersebar di seluruh penjuru negeri. 
+
+Walaupun telah menjadi menjadi perusahaan yang cukup besar, Jaya Jaya Maju masih cukup kesulitan dalam mengelola karyawan. Hal ini berimbas tingginya attrition rate (rasio jumlah karyawan yang keluar dengan total karyawan keseluruhan) hingga lebih dari 10%.
+
+Dataset yang digunakan dalam proyek ini adalah [Dataset Karyawan Jaya Jaya Maju](https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee) sesuai dengan instruksi dari submission proyek ini. Dataset memiliki 1470 baris dan 35 kolom.
 
 **Setup environment**:
+
+Setup Environment - Anaconda
+```
+conda create --name main-ds python=3.9
+conda activate main-ds
+pip install -r requirements.txt`
+```
+
+Setup Environment - Shell/Terminal
+```
+pip install pipenv
+pipenv install
+pipenv shell
+pip install -r requirements.txt
+```
+
 Proyek ini membutuhkan lingkungan sederhana untuk menjalankan analisis data dan dashboard. Berikut langkah-langkah untuk mempersiapkan environment:
 1. Menjalankan `notebook.ipynb`
    - Pastikan dependensi, packages, library yang dibutuhkan sudah tersedia (lihat file `requirements.txt` untuk melihat dependensi yang dibutuhkan).
    - Jalankan seluruh isi file `notebook.ipynb` menggunakan Google Colab/Jupyter Notebook untuk melihat hasil analisis data, temuan, dan insight yang diperoleh.
 2. **Menjalankan Dashboard**:
-   Untuk melihat isi dashboard secara langsung klik link ini https://lookerstudio.google.com/reporting/cd54606e-bb40-4061-94be-d28241ee6fd2 maka akan muncul tampilan dashboardnya
+   Untuk melihat isi dashboard secara langsung klik link ini https://lookerstudio.google.com/reporting/cd54606e-bb40-4061-94be-d28241ee6fd2 maka akan muncul tampilan dashboardnya 
 
 ## Business Dashboard
 Hasil dari analisis dan model prediktif dapat divisualisasikan dalam bentuk dashboard untuk membantu tim HR memantau dan memahami attrition secara real-time. Berikut adalah elemen-elemen yang dapat disertakan dalam dashboard:
@@ -70,18 +91,19 @@ Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna m
 4. **Gunakan Model Prediktif**:
    - Integrasikan model XGBoost untuk memonitor risiko secara real-time melalui dashboard HR.
   
-### Cara Penggunaan Script Prediksi
+## Cara Penggunaan Script Prediksi
 Script ini digunakan untuk melakukan prediksi menggunakan model machine learning yang telah disimpan dalam format `.pkl`.
 Langkah-langkah Penggunaan:
 1. Pastikan dependensi berikut telah terinstal: `pip install pandas numpy`
 2. Simpan file model hasil training dengan nama `best_model.pkl` di direktori yang sama dengan script Python ini, atau sesuaikan path-nya di fungsi `load_model`.
-3. Jalankan script menggunakan Python: `python predict_script.py` pastikan file script disimpan dengan nama, misalnya, `predict_script.py`.
+3. Jalankan script Menggunakan file python (.py): `python predict_script.py` pastikan file script disimpan dengan nama, misalnya, `predict_script.py`.
 4. Output yang akan ditampilkan: `Hasil Prediksi: {'class': 0, 'probabilities': {'class_0': 0.85, 'class_1': 0.15}}`
    - "class": hasil prediksi model (misalnya 0 atau 1).
    - "probabilities": probabilitas masing-masing kelas.
 
 Contoh Data yang Diprediksi
-`new_data = {
+```
+new_data = {
     'EmployeeId': 1,
     'Age': 35,
     'DailyRate': 800,
@@ -92,6 +114,7 @@ Contoh Data yang Diprediksi
     'TotalWorkingYears': 8,
     'YearsAtCompany': 5,
     'OverTime_Yes': 1
-}`
+}
+```
 Kamu dapat mengganti nilai-nilai dalam new_data sesuai dengan input yang ingin diprediksi.
 
